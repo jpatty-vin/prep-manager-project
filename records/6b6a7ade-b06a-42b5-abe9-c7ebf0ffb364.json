@@ -1,0 +1,90 @@
+{
+  "record_id": "6b6a7ade-b06a-42b5-abe9-c7ebf0ffb364",
+  "schema_version": "1.0",
+  "organization_id": "org_demo",
+  "client_id": "client_demo",
+  "agent": "prep",
+  "subject": "unit_1",
+  "captured_at": "2026-09-30T11:05:13+00:00",
+  "operator_label": "operator_1",
+  "images": [
+    {
+      "name": "0_sample 16.jpg",
+      "sha256": "ae1b1587e9b22b2118afd6a8a7ccf6a4b79761ea6b05b54fc736b535450a33c1",
+      "bytes": 96209,
+      "stored_path": "records/images/ae1b1587e9b22b2118afd6a8a7ccf6a4b79761ea6b05b54fc736b535450a33c1.jpg"
+    }
+  ],
+  "checks": [
+    {
+      "check_key": "image_quality",
+      "verdict": "PASS",
+      "confidence": 1.0,
+      "detail": "All photos passed.",
+      "model_version": "local_quality_gate",
+      "latency_ms": 0
+    },
+    {
+      "check_key": "fnsku_placement",
+      "verdict": "FAIL",
+      "confidence": 1.0,
+      "detail": "There is no FNSKU label present on the package. Only a delivery/shipping label is visible. | Evidence: In Image 1, the white package has a shipping label (labeled 'Envio Flex') with a QR code and address details, but no FNSKU label.",
+      "model_version": "gemini-3.5-flash",
+      "latency_ms": 13712
+    },
+    {
+      "check_key": "barcode_readable",
+      "verdict": "FAIL",
+      "confidence": 1.0,
+      "detail": "No FNSKU barcode is present on the package. | Evidence: In Image 1, only a shipping QR code is visible; there is no standard FNSKU barcode.",
+      "model_version": "gemini-3.5-flash",
+      "latency_ms": 13712
+    },
+    {
+      "check_key": "original_barcode_covered",
+      "verdict": "PASS",
+      "confidence": 0.95,
+      "detail": "No original manufacturer barcode is visible on the package, preventing any potential mis-scans. | Evidence: The visible sides of the white poly mailer in Image 1 do not show any original manufacturer barcodes.",
+      "model_version": "gemini-3.5-flash",
+      "latency_ms": 13712
+    },
+    {
+      "check_key": "handling_marks_present",
+      "verdict": "UNCERTAIN",
+      "confidence": 0.9,
+      "detail": "No handling marks are visible on the package, and it is unclear if any are required for this item. | Evidence: In Image 1, the white poly mailer has no visible handling icons or text.",
+      "model_version": "gemini-3.5-flash",
+      "latency_ms": 13712
+    },
+    {
+      "check_key": "packaging_matches_declared",
+      "verdict": "PASS",
+      "confidence": 0.95,
+      "detail": "The package is a poly mailer bag, which is compatible with the declared type 'other'. | Evidence: In Image 1, the product is packaged in a flexible white plastic shipping mailer.",
+      "model_version": "gemini-3.5-flash",
+      "latency_ms": 13712
+    }
+  ],
+  "outcome": {
+    "decision": "FAIL",
+    "decided_by": "agent:gemini-3.5-flash",
+    "decided_at": "2026-09-30T11:05:13+00:00"
+  },
+  "overrides": [],
+  "status": "final",
+  "content_hash": "00fb487130c84304cdf3dcaac3b19ba966db0a32b79ae23804cf27c8895b0e64",
+  "context": {
+    "packaging": "other",
+    "category": "general",
+    "instructions": "",
+    "photo_quality": [
+      {
+        "name": "0_sample 16.jpg",
+        "sharpness": 308.8,
+        "brightness": 118.9,
+        "ok": true,
+        "issue": null
+      }
+    ]
+  }
+}

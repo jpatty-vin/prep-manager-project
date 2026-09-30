@@ -1,0 +1,90 @@
+{
+  "record_id": "5e757465-ad86-48ef-84a9-207b4e436295",
+  "schema_version": "1.0",
+  "organization_id": "org_demo",
+  "client_id": "client_demo",
+  "agent": "prep",
+  "subject": "unit_1",
+  "captured_at": "2026-09-30T10:53:41+00:00",
+  "operator_label": "operator_1",
+  "images": [
+    {
+      "name": "0_sample 8.jpg",
+      "sha256": "a129ae41af9d65133f2ed72a68f1cde84e3c69c90f3b4cc2af4e3f4638d77930",
+      "bytes": 83936,
+      "stored_path": "records/images/a129ae41af9d65133f2ed72a68f1cde84e3c69c90f3b4cc2af4e3f4638d77930.jpg"
+    }
+  ],
+  "checks": [
+    {
+      "check_key": "image_quality",
+      "verdict": "PASS",
+      "confidence": 1.0,
+      "detail": "All photos passed.",
+      "model_version": "local_quality_gate",
+      "latency_ms": 0
+    },
+    {
+      "check_key": "fnsku_placement",
+      "verdict": "UNCERTAIN",
+      "confidence": 0.9,
+      "detail": "There is no FNSKU label visible on the top surface of the box shown in Image 1; it may be on one of the other sides which are not visible. | Evidence: Image 1 shows the top of a brown cardboard box with only a UPS shipping label visible.",
+      "model_version": "gemini-3.5-flash",
+      "latency_ms": 22432
+    },
+    {
+      "check_key": "barcode_readable",
+      "verdict": "UNCERTAIN",
+      "confidence": 0.9,
+      "detail": "Since no FNSKU label is visible in the image, we cannot verify if the barcode is readable. | Evidence: No FNSKU label is present on the visible face of the package in Image 1.",
+      "model_version": "gemini-3.5-flash",
+      "latency_ms": 22432
+    },
+    {
+      "check_key": "original_barcode_covered",
+      "verdict": "PASS",
+      "confidence": 0.95,
+      "detail": "No original manufacturer barcode is visible on the package surface shown, which meets the requirement of not having any exposed scannable manufacturer barcodes. | Evidence: Only the UPS shipping label barcodes are visible on the top face of the box in Image 1.",
+      "model_version": "gemini-3.5-flash",
+      "latency_ms": 22432
+    },
+    {
+      "check_key": "handling_marks_present",
+      "verdict": "UNCERTAIN",
+      "confidence": 0.9,
+      "detail": "It is not clear if handling marks are required for this shipment, and other sides of the carton are not visible to confirm if any are present. | Evidence: No handling marks are visible on the top surface of the box in Image 1.",
+      "model_version": "gemini-3.5-flash",
+      "latency_ms": 22432
+    },
+    {
+      "check_key": "packaging_matches_declared",
+      "verdict": "PASS",
+      "confidence": 0.9,
+      "detail": "The packaging is a brown cardboard shipping carton, which is appropriate and consistent with the declared type 'other'. | Evidence: Image 1 shows a standard brown cardboard box.",
+      "model_version": "gemini-3.5-flash",
+      "latency_ms": 22432
+    }
+  ],
+  "outcome": {
+    "decision": "UNCERTAIN",
+    "decided_by": "agent:gemini-3.5-flash",
+    "decided_at": "2026-09-30T10:53:41+00:00"
+  },
+  "overrides": [],
+  "status": "needs_review",
+  "content_hash": "199bba654c235ae4cac29b11d15eb61b3229d2d33c64498c80a73ba050b6b54f",
+  "context": {
+    "packaging": "other",
+    "category": "general",
+    "instructions": "",
+    "photo_quality": [
+      {
+        "name": "0_sample 8.jpg",
+        "sharpness": 675.4,
+        "brightness": 110.0,
+        "ok": true,
+        "issue": null
+      }
+    ]
+  }
+}

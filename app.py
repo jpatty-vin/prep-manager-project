@@ -185,8 +185,10 @@ def history_page():
 def evaluation_page():
     st.title("Evaluation results")
     if not os.path.exists("eval/summary.csv"):
-        st.info("Run `python evaluate.py run` then `python evaluate.py score` first.")
+        st.info("No evaluation results yet. The evaluation needs 50+ staged photos labelled "
+                "independently by two people before the agent runs. See the README (Evaluation section).")
         return
+
     if os.path.exists("eval/metrics.json"):
         m = json.load(open("eval/metrics.json"))
         cols = st.columns(4)
