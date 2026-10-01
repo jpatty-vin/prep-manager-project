@@ -1,0 +1,86 @@
+{
+  "record_id": "68a7bfd6-c465-4eb0-82af-e4884595b8fa",
+  "schema_version": "1.0",
+  "organization_id": "org_demo",
+  "client_id": "client_demo",
+  "agent": "prep",
+  "subject": "unit_1",
+  "captured_at": "2026-09-30T16:50:22+00:00",
+  "operator_label": "operator_1",
+  "images": [
+    {
+      "name": "0_IMG_20260930_081454.jpg",
+      "sha256": "d640fb31312695bdd75a77ddc481e63e7628e5eb7cba043c6097ff3e1af4d819",
+      "bytes": 569761,
+      "stored_path": "records/images/d640fb31312695bdd75a77ddc481e63e7628e5eb7cba043c6097ff3e1af4d819.jpg"
+    }
+  ],
+  "checks": [
+    {
+      "check_key": "image_quality",
+      "verdict": "PASS",
+      "confidence": 1.0,
+      "detail": "All photos passed.",
+      "model_version": "local_quality_gate",
+      "latency_ms": 0
+    },
+    {
+      "check_key": "fnsku_label_ok",
+      "verdict": "FAIL",
+      "confidence": 0.9,
+      "detail": "There is no FNSKU label visible on the packaging or the product in the image. | Evidence: Image 1 shows the laptop and its boxes, but none of the visible labels are Amazon FNSKU labels.",
+      "model_version": "gemini-3.5-flash",
+      "latency_ms": 10674
+    },
+    {
+      "check_key": "original_barcode_covered",
+      "verdict": "UNCERTAIN",
+      "confidence": 0.9,
+      "detail": "Not all sides of the product or its packaging are visible, making it impossible to confirm if all original barcodes are covered. | Evidence: In Image 1, the underside of the laptop is not visible, and several sides of both cardboard boxes are obscured or not shown.",
+      "model_version": "gemini-3.5-flash",
+      "latency_ms": 10674
+    },
+    {
+      "check_key": "packaging_matches_declared",
+      "verdict": "PASS",
+      "confidence": 0.9,
+      "detail": "The packaging consists of cardboard boxes, which matches the declared type of 'other'. | Evidence: Image 1 shows the product with its cardboard box packaging.",
+      "model_version": "gemini-3.5-flash",
+      "latency_ms": 10674
+    }
+  ],
+  "outcome": {
+    "decision": "FAIL",
+    "decided_by": "agent:gemini-3.5-flash",
+    "decided_at": "2026-09-30T16:50:22+00:00"
+  },
+  "overrides": [],
+  "status": "final",
+  "content_hash": "8548bf059f97a736c7f31fcb066fe49eb6807b76c2209ed30362a43855639b36",
+  "context": {
+    "packaging": "other",
+    "category": "general",
+    "instructions": "",
+    "required_marks": [],
+    "photo_quality": [
+      {
+        "name": "0_IMG_20260930_081454.jpg",
+        "sharpness": 518.4,
+        "brightness": 125.1,
+        "ok": true,
+        "issue": null
+      }
+    ],
+    "rules_source": "rules/amazon_prep_rules.md",
+    "rules_sha256": "6f86098d3bd15a552e191675519551fcb10d87abbe64a0ae1a6e1742b9d7f9a6",
+    "image_max_side": 1280,
+    "usage": {
+      "prompt_tokens": 2368,
+      "output_tokens": 280,
+      "thinking_tokens": 1653
+    },
+    "total_ms": 20534,
+    "pending": false,
+    "model_error": null
+  }
+}

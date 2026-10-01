@@ -1,0 +1,82 @@
+{
+  "record_id": "d5559ef7-ddc9-4095-b370-3b69d77e2713",
+  "schema_version": "1.0",
+  "organization_id": "org_demo",
+  "client_id": "client_demo",
+  "agent": "prep",
+  "subject": "unit_1",
+  "captured_at": "2026-09-30T16:51:51+00:00",
+  "operator_label": "operator_1",
+  "images": [
+    {
+      "name": "0_sample 23.png",
+      "sha256": "cedfa2f8c716caea45146a611d1dec69c0a1cffa3f998e5c1bc86115bbe70d6f",
+      "bytes": 176439,
+      "stored_path": "records/images/cedfa2f8c716caea45146a611d1dec69c0a1cffa3f998e5c1bc86115bbe70d6f.png"
+    }
+  ],
+  "checks": [
+    {
+      "check_key": "image_quality",
+      "verdict": "UNCERTAIN",
+      "confidence": 1.0,
+      "detail": "All photos failed the quality gate: 0_sample 23.png (blurry). Retake in better light, in focus.",
+      "model_version": "local_quality_gate",
+      "latency_ms": 0
+    },
+    {
+      "check_key": "fnsku_label_ok",
+      "verdict": "UNCERTAIN",
+      "confidence": 0.0,
+      "detail": "No valid model output. Model not called: photos unusable (0_sample 23.png (blurry)).",
+      "model_version": "quality_gate",
+      "latency_ms": 0
+    },
+    {
+      "check_key": "original_barcode_covered",
+      "verdict": "UNCERTAIN",
+      "confidence": 0.0,
+      "detail": "No valid model output. Model not called: photos unusable (0_sample 23.png (blurry)).",
+      "model_version": "quality_gate",
+      "latency_ms": 0
+    },
+    {
+      "check_key": "packaging_matches_declared",
+      "verdict": "UNCERTAIN",
+      "confidence": 0.0,
+      "detail": "No valid model output. Model not called: photos unusable (0_sample 23.png (blurry)).",
+      "model_version": "quality_gate",
+      "latency_ms": 0
+    }
+  ],
+  "outcome": {
+    "decision": "UNCERTAIN",
+    "decided_by": "agent:local_quality_gate",
+    "decided_at": "2026-09-30T16:51:51+00:00"
+  },
+  "overrides": [],
+  "status": "needs_review",
+  "content_hash": "fdf07ba6d49f7d2192b07424586482bf41d5d1deac24089d8e174bfe99cd7fe6",
+  "context": {
+    "packaging": "other",
+    "category": "general",
+    "instructions": "",
+    "required_marks": [],
+    "photo_quality": [
+      {
+        "name": "0_sample 23.png",
+        "sharpness": 58.2,
+        "brightness": 157.2,
+        "ok": false,
+        "issue": "blurry"
+      }
+    ],
+    "rules_source": "rules/amazon_prep_rules.md",
+    "rules_sha256": "6f86098d3bd15a552e191675519551fcb10d87abbe64a0ae1a6e1742b9d7f9a6",
+    "image_max_side": 1280,
+    "usage": null,
+    "total_ms": 0,
+    "pending": false,
+    "model_error": null
+  }
+}

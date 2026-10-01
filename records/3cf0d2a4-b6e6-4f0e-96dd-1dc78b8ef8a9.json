@@ -1,0 +1,86 @@
+{
+  "record_id": "3cf0d2a4-b6e6-4f0e-96dd-1dc78b8ef8a9",
+  "schema_version": "1.0",
+  "organization_id": "org_demo",
+  "client_id": "client_demo",
+  "agent": "prep",
+  "subject": "unit_1",
+  "captured_at": "2026-09-30T16:51:15+00:00",
+  "operator_label": "operator_1",
+  "images": [
+    {
+      "name": "0_sample 14.jpg",
+      "sha256": "eaaecbafa5cf88323eebe88a00a4165c37fce4ebd1933f16f0cefb2bfa5b1e07",
+      "bytes": 74582,
+      "stored_path": "records/images/eaaecbafa5cf88323eebe88a00a4165c37fce4ebd1933f16f0cefb2bfa5b1e07.jpg"
+    }
+  ],
+  "checks": [
+    {
+      "check_key": "image_quality",
+      "verdict": "PASS",
+      "confidence": 1.0,
+      "detail": "All photos passed.",
+      "model_version": "local_quality_gate",
+      "latency_ms": 0
+    },
+    {
+      "check_key": "fnsku_label_ok",
+      "verdict": "UNCERTAIN",
+      "confidence": 0.9,
+      "detail": "The image shows the outer shipping box with a shipping label, but the individual product units inside are not visible. We cannot verify if there is an FNSKU label on the actual product packaging. | Evidence: Image 1 shows a cardboard shipping box with a 'sharf' shipping label, but the contents/product units inside are not visible.",
+      "model_version": "gemini-3.5-flash",
+      "latency_ms": 13299
+    },
+    {
+      "check_key": "original_barcode_covered",
+      "verdict": "UNCERTAIN",
+      "confidence": 0.9,
+      "detail": "Since the product is inside the shipping box and not visible, we cannot determine if any original manufacturer barcode is present or covered on the actual product packaging. | Evidence: Only the outer shipping box is visible in Image 1; the actual product units are inside.",
+      "model_version": "gemini-3.5-flash",
+      "latency_ms": 13299
+    },
+    {
+      "check_key": "packaging_matches_declared",
+      "verdict": "UNCERTAIN",
+      "confidence": 0.9,
+      "detail": "The actual product packaging is inside the shipping box and not visible, so we cannot verify if it matches the declared type 'other'. | Evidence: Image 1 shows only the outer brown cardboard shipping box, not the product's packaging itself.",
+      "model_version": "gemini-3.5-flash",
+      "latency_ms": 13299
+    }
+  ],
+  "outcome": {
+    "decision": "UNCERTAIN",
+    "decided_by": "agent:gemini-3.5-flash",
+    "decided_at": "2026-09-30T16:51:15+00:00"
+  },
+  "overrides": [],
+  "status": "needs_review",
+  "content_hash": "9e25e07de516fe89aa145e004b803a14f1879610ba31518a3a79006650ac589f",
+  "context": {
+    "packaging": "other",
+    "category": "general",
+    "instructions": "",
+    "required_marks": [],
+    "photo_quality": [
+      {
+        "name": "0_sample 14.jpg",
+        "sharpness": 679.0,
+        "brightness": 161.5,
+        "ok": true,
+        "issue": null
+      }
+    ],
+    "rules_source": "rules/amazon_prep_rules.md",
+    "rules_sha256": "6f86098d3bd15a552e191675519551fcb10d87abbe64a0ae1a6e1742b9d7f9a6",
+    "image_max_side": 1280,
+    "usage": {
+      "prompt_tokens": 2327,
+      "output_tokens": 326,
+      "thinking_tokens": 2036
+    },
+    "total_ms": 13299,
+    "pending": false,
+    "model_error": null
+  }
+}

@@ -37,19 +37,28 @@ def load_rules():
 
 # ---- CATALOG: the six checks from the Prep Manager problem statement ----
 CHECKS = {
-    "polybag_sealed": "The product is inside a polybag and the polybag is fully sealed, with no "
-                      "open edge or gap. FAIL if there is no polybag or it is open.",
-    "suffocation_warning_ok": "A suffocation warning (text or icon) is present on the bag and fully "
-                              "legible: not folded, creased, covered by a label or cut off. FAIL if "
-                              "it is missing or obscured; say which in the reason.",
-    "fnsku_label_ok": "An FNSKU label with an intact, unobstructed, scannable barcode is present on "
-                      "the exterior, on a flat surface: not across a seam, fold, corner or curved "
-                      "edge. FAIL if the label is missing, damaged or badly placed; say which in "
-                      "the reason.",
-    "original_barcode_covered": "The original manufacturer barcode is covered or not visible. FAIL "
-                                "if an original barcode is still visible and could be scanned.",
-    "expiry_date_legible": "The expiry date is printed, legible and not covered or cut off after "
-                           "wrapping.",
+    "polybag_sealed": "Open edge or gap. FAIL if there is no polybag or it is open.",
+    "suffocation_warning_ok": (
+        "A suffocation warning (text or icon) is present on the bag and fully "
+        "legible: not folded, creased, covered by a label or cut off. FAIL if "
+        "it is missing or obscured; say which in the reason."
+    ),
+    "fnsku_label_ok": (
+        "An FNSKU label with an intact, unobstructed, scannable barcode is present on "
+        "the exterior, on a flat surface: not across a seam, fold, corner or curved "
+        "edge. FAIL if the label is missing, damaged or badly placed; say which in "
+        "the reason."
+    ),
+    "original_barcode_covered": (
+        "The original manufacturer barcode is covered. PASS only if the "
+        "photos show it covered, or show every side of the product with no "
+        "original barcode visible. FAIL if an original barcode is still "
+        "visible and could be scanned. UNCERTAIN if it could be on a side "
+        "or surface that is not shown."
+    ),
+    "expiry_date_legible": (
+        "The expiry date is printed, legible and not covered or cut off after wrapping."
+    ),
     "handling_marks_present": "All required handling marks are visible and legible.",
 }
 PACKAGING_CHECKS = {
